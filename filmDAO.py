@@ -1,4 +1,5 @@
 import mysql.connector
+import DBConfig as cfg
 
 
 class FilmDAO:
@@ -6,12 +7,12 @@ class FilmDAO:
 
     def __init__(self):
         self.db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="GaBi2011",
+        host=cfg.mysql['host'],
+        user=cfg.mysql['username'],
+        password=cfg.mysql['password'],
         #user="datarep",  # this is the user name on my mac
         #passwd="password" # for my mac
-        database="datarepresentation"
+        database=cfg.mysql['database']
         )
 
     def create(self, values):
